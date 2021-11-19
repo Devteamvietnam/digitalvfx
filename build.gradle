@@ -1,20 +1,18 @@
 plugins {
-    id 'org.springframework.boot' version '2.6.0'
+    id 'org.springframework.boot' version '2.5.6'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
+    id 'java-library'
     id 'eclipse'
 }
 
+project.ext {
+    springSecurityVersion    = '5.3.3.RELEASE'
+}
 group = 'com.devteam'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 compileJava.options.encoding = 'UTF-8'
-
-configurations {
-    compileOnly {
-        extendsFrom annotationProcessor
-    }
-}
 
 repositories {
     mavenLocal()
@@ -25,20 +23,33 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    implementation 'org.springframework.boot:spring-boot-starter-security'
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'io.jsonwebtoken:jjwt:0.9.1'
+	implementation'org.springframework.boot:spring-boot-starter-security'
+    implementation'org.springframework.boot:spring-boot-starter-web'
+    implementation"org.springframework.boot:spring-boot-starter-actuator"
+    implementation 'org.springframework.boot:spring-boot-starter-data-rest'
+    implementation 'org.springframework.boot:spring-boot-starter-jersey'
+    implementation 'org.springframework.boot:spring-boot-devtools'
+    implementation 'com.zaxxer:HikariCP:5.0.0'
+    implementation 'org.springframework.integration:spring-integration-core:5.5.5'
+    implementation 'org.springframework:spring-messaging:5.3.10'
+    implementation group: "com.h2database", name: "h2", version: '1.4.200'
+
+    implementation 'mysql:mysql-connector-java:5.1.48'
+    implementation 'org.postgresql:postgresql:42.3.1'
+    implementation 'javax.xml.bind:jaxb-api:2.3.0'
     compileOnly 'org.projectlombok:lombok'
-    developmentOnly 'org.springframework.boot:spring-boot-devtools'
-    runtimeOnly 'com.h2database:h2'
-    runtimeOnly 'mysql:mysql-connector-java'
-    runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
-    runtimeOnly 'org.postgresql:postgresql'
     annotationProcessor 'org.projectlombok:lombok'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testImplementation 'org.springframework.security:spring-security-test'
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
 }
 
 test {
     useJUnitPlatform()
 }
+bootRun {
+    String activeProfile = System.properties['spring.profiles.active']
+    systemProperty "spring.profiles.active", activeProfile
+}
+
