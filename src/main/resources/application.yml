@@ -61,3 +61,14 @@ logging:
 hibernate:
   hbm2ddl:
     auto: update
+---
+#openssl rand 256 | base64
+jwt:
+  auth:
+    secret_key: qhb2u7t9LghE+TYarT2hVZZI4HqgF4ACrAji4TPWLzYnP7CzaIKFxjzJUoN1DiOwTfe7nvMjfEbz
+  2+KuS8s64pn5dsxuOuExCga2fOLZoCU9ZKukx/fhVa06dt0MhpWPZfkiJ3eHmz1f3xO3gLEpUs90
+  cXKfWsQk9Dq8VQ0K/pDk/rpVE0xRIkcdTvbklJAZwTi34IQHZTTyY5Qp3Zaayymrop2cWR8IZhSh
+  pKrg8aHa2PTZdeWS+hdZ0ryC2LeLh0i0z68Exn0tI38dpBC3fPWs1F5wSO8jdfdtnzkFKVbf1FYs
+  DbDZSZy87q/R58Z8nQB1B/n2CIBZha0kkozyCQ==
+    expires_in: 3600
+    app: DigitalVfx
