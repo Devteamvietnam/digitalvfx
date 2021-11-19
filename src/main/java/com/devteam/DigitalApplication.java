@@ -87,14 +87,13 @@ public class DigitalApplication{
 
         Account user=new Account();
 
-        user.setUserName("admin");
+        user.setUsername("admin");
         user.setFirstName("admin");
         user.setLastName("admin");
-
+        user.setEmail("jungjihoonkr97@gmail.com");
         user.setPassword(passwordEncoder.encode("admin@123"));
         user.setEnabled(true);
         user.setAuthorities(authorityList);
-
         repo.save(user);
 
     }

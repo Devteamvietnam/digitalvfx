@@ -17,8 +17,8 @@ import java.util.List;
 @Table( name = Account.TABLE_NAME,
         uniqueConstraints = {
                 @UniqueConstraint(
-                        name = Account.TABLE_NAME + "_user_name",
-                        columnNames = {"user_name"}),
+                        name = Account.TABLE_NAME + "_username",
+                        columnNames = {"username"}),
                 @UniqueConstraint(
                         name = Account.TABLE_NAME + "_email",
                         columnNames = {"email"})
@@ -30,8 +30,8 @@ import java.util.List;
 public class Account extends BaseEntity implements UserDetails {
     public static final String TABLE_NAME = "account";
 
-    @Column(name = "user_name", unique = true)
-    private String userName;
+    @Column(name = "username", unique = true)
+    private String username;
 
     @Column(name = "password")
     private String password;
@@ -59,19 +59,11 @@ public class Account extends BaseEntity implements UserDetails {
 
 
     @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    @JoinTable(name = "authorities",
+    @JoinTable(name = "account_role",
             joinColumns = @JoinColumn(referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(referencedColumnName ="id"))
     private List<Authority> authorities;
 
-    public Account(String password, String userName,  String firstName, String lastName, String email, String phoneNumber) {
-        this.userName = userName;
-        this.password = password;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -80,7 +72,7 @@ public class Account extends BaseEntity implements UserDetails {
 
     @Override
     public String getUsername() {
-        return this.userName;
+        return this.username;
     }
 
     @Override
