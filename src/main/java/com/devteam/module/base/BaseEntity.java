@@ -1,4 +1,4 @@
-package com.devteam.config.base;
+package com.devteam.module.base;
 
 import com.devteam.util.DateUtil;
 import com.fasterxml.jackson.annotation.JsonFormat;

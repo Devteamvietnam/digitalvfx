@@ -36,7 +36,7 @@ spring:
       connectionTimeout: 30000
       idleTimeout: 600000
       maxLifetime: 1800000
-    jdbcUrl: jdbc:h2:file./data/db/h2/digitaldb
+    jdbcUrl: jdbc:h2:mem:digitaldb
     driverClassName: org.h2.Driver
     username: sa
     password:
@@ -64,3 +64,9 @@ spring:
     active: dev
     restart:
       enabled: false
+---
+jwt:
+  auth:
+    secret_key: lK1j9rfXrbMd1Fi0iu6bFUEzbMjBxEtGKBpAVrxc1sIAXwrJy40tfQ==
+    expires_in: 3600
+    app: Digital-RestApi-App
