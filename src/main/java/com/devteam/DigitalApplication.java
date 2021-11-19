@@ -1,9 +1,7 @@
 package com.devteam;
 
-import com.devteam.module.account.AccountConfig;
-import com.devteam.module.account.entity.Account;
-import com.devteam.module.account.entity.Authority;
-import com.devteam.module.account.repository.AccountDetailsRepository;
+import com.devteam.module.account.entity.User;
+import com.devteam.module.account.repository.UserRepository;
 import com.devteam.security.WebSecurityConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -32,12 +30,6 @@ import java.util.List;
 })
 
 public class DigitalApplication{
-
-    @Autowired
-    private PasswordEncoder passwordEncoder;
-
-    @Autowired
-    private AccountDetailsRepository repo;
 
     static ConfigurableApplicationContext context;
 
@@ -77,33 +69,5 @@ public class DigitalApplication{
         Thread.currentThread().join();
     }
 
-    @PostConstruct
-    protected void init() {
-
-        List<Authority> authorityList=new ArrayList<>();
-
-        authorityList.add(createAuthority("USER","User role"));
-        authorityList.add(createAuthority("ADMIN","Admin role"));
-
-        Account user=new Account();
-
-        user.setUsername("admin");
-        user.setFirstName("admin");
-        user.setLastName("admin");
-        user.setEmail("jungjihoonkr97@gmail.com");
-        user.setPassword(passwordEncoder.encode("admin@123"));
-        user.setEnabled(true);
-        user.setAuthorities(authorityList);
-        repo.save(user);
-
-    }
-
-
-    private Authority createAuthority(String roleCode,String roleDescription) {
-        Authority authority=new Authority();
-        authority.setRoleCode(roleCode);
-        authority.setRoleDescription(roleDescription);
-        return authority;
-    }
 
 }
