@@ -8,6 +8,7 @@ plugins {
 group = 'com.devteam'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
+compileJava.options.encoding = 'UTF-8'
 
 configurations {
     compileOnly {
@@ -16,7 +17,10 @@ configurations {
 }
 
 repositories {
+    mavenLocal()
     mavenCentral()
+    maven { url "https://repo.spring.io/plugins-release" }
+    maven { url "https://repo.spring.io/milestone" }
 }
 
 dependencies {
