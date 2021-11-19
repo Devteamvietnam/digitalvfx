@@ -1,9 +1,8 @@
-package com.devteam.customer.entity;
+package com.devteam.module.customer.entity;
 
 import com.devteam.config.base.BaseEntity;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
-import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 
@@ -14,11 +13,6 @@ import javax.persistence.*;
 @Entity
 @Table(name = "address")
 public class Address extends BaseEntity {
-
-    @Id
-    @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "uuid2")
-    private String id;
 
     private String streetAddress;
     private @NonNull String city;
