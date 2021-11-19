@@ -1,7 +1,7 @@
 package com.devteam.module.account.controller;
 
 import com.devteam.module.account.entity.Role;
-import com.devteam.module.account.entity.RoleToUser;
+import com.devteam.module.account.entity.LoginRequest;
 import com.devteam.module.account.entity.User;
 import com.devteam.module.account.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +38,7 @@ public class UserController {
     }
 
     @PostMapping("/role/addtouser")
-    public ResponseEntity<?> addRoleToUser(@RequestBody RoleToUser form) {
+    public ResponseEntity<?> addRoleToUser(@RequestBody LoginRequest form) {
         service.addRoleToUser(form.getUsername(), form.getRoleName());
         return ResponseEntity.ok().build();
     }

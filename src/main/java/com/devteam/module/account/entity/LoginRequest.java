@@ -3,7 +3,7 @@ package com.devteam.module.account.entity;
 import lombok.Data;
 
 @Data
-public class RoleToUser {
+public class LoginRequest {
     private String username;
     private String roleName;
 }
