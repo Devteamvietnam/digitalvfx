@@ -36,6 +36,8 @@ public class AppController {
         if(config.DUMMY_DATA_ENABLED || config.BYPASS_AUTHENTICATION) {
             service.initDummyData();
         }
+
+        log.info("Initialize data finished");
     }
 
 
