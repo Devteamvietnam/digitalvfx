@@ -38,6 +38,7 @@ public class AccountServiceImpl implements AccountService {
     @Autowired
     private GeneralConfig config;
 
+
     @Override
     public boolean exists(String username) {
         return accountRepository.existsByUsername(username);
@@ -90,7 +91,7 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public Account save(AccountDto dto) {
-        Account act = AccountConverter.getInstance().dtoToEntity(dto);
+        Account act = new AccountConverter().dtoToEntity(dto);
         String pwd = encoder.encode(dto.getPassword());
         act.setPassword(pwd);
         act.setAccountRoles(getRoles(dto.getRoles()));

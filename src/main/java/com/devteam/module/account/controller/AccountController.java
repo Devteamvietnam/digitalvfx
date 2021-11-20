@@ -64,7 +64,7 @@ public class AccountController {
 
             return ResponseEntity.ok(new JwtResponse(jwt, "Bearer"));
 
-        } catch(AuthenticationException ex) {
+        } catch (AuthenticationException ex) {
             throw AppExceptionCode.USER_LOGIN_FAILED_400_4003;
         }
     }
@@ -72,9 +72,9 @@ public class AccountController {
     @PostMapping("/register")
     public ResponseEntity<?> register(@RequestBody AccountDto user) throws AppException {
         log.info("Creating user : {}", user);
-        if(!service.exists(user.getEmail())) {
+        if (!service.exists(user.getEmail())) {
             Account result = service.register(user);
-            if(result!=null) {
+            if (result != null) {
                 return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
             } else {
                 throw AppExceptionCode.USER_REGISTRATION_FAILED_500_4006;
@@ -89,7 +89,7 @@ public class AccountController {
         log.info("Reset password for : {}", username);
 
         if (service.exists(username)) {
-            AccountDto result = AccountConverter.getInstance().entityToDto(service.resetPassword(username, password));
+            AccountDto result = new AccountConverter().entityToDto(service.resetPassword(username, password));
             if (result != null) {
                 return ResponseEntity.ok(new MessageResponse("Password changed successfully!"));
             } else {
