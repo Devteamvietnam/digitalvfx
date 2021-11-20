@@ -1,7 +1,7 @@
 package com.devteam.util;
 
-import com.devteam.error.ErrorType;
-import com.devteam.error.RuntimeError;
+import com.devteam.module.base.error.ErrorType;
+import com.devteam.module.base.error.RuntimeError;
 
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;

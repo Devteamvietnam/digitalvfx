@@ -64,3 +64,12 @@ spring:
     active: dev
     restart:
       enabled: false
+---
+app:
+  username: useradmin@digital.com
+  bypassAuthentication: true
+  errorLevel: 1
+  jwtSecret: awlifhwaukfbwakfbwaukfwaghawvgcddthien@2021
+  dummyDataEnabled: true
+  jwtExpirationMs: 86400000
+  password: useradmin@123

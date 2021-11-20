@@ -1,7 +1,7 @@
 package com.devteam.util;
 
-import com.devteam.error.ErrorType;
-import com.devteam.error.RuntimeError;
+import com.devteam.module.base.error.ErrorType;
+import com.devteam.module.base.error.RuntimeError;
 
 public class Objects {
     static public interface Selector<T> { public boolean select(T obj) ; }
