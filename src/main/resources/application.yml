@@ -38,10 +38,10 @@ spring:
       connectionTimeout: 30000
       idleTimeout: 600000
       maxLifetime: 1800000
-    jdbcUrl: jdbc:postgresql://ec2-52-201-168-60.compute-1.amazonaws.com:5432/d60e6vvl8t7lq9
-    driverClassName: org.postgresql.Driver
-    username: zosypussmbaoad
-    password: 499a656f84716503c288c6ed799b6b0e2f05c6b98bfb52af7a1477a12a4c63a1
+    jdbcUrl: jdbc:mysql://localhost:3306/digitaldb
+    driverClassName: com.mysql.jdbc.Driver
+    username: root
+    password: devteam
   jpa:
     open-in-view: false
     database-platform: org.hibernate.dialect.PostgreSQLDialect
@@ -58,9 +58,3 @@ logging:
 hibernate:
   hbm2ddl:
     auto: update
----
-jwt:
-  auth:
-    secret_key: lK1j9rfXrbMd1Fi0iu6bFUEzbMjBxEtGKBpAVrxc1sIAXwrJy40tfQ==
-    expires_in: 3600
-    app: Digital-RestApi-App

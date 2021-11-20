@@ -37,7 +37,7 @@ public class JpaConfiguration {
     @Bean("entityManagerFactory")
     public LocalContainerEntityManagerFactoryBean entityManagerFactoryBean(
             @Value("${hibernate.hbm2ddl.auto:update}") String hbm2ddlAuto,
-            @Value("${hibernate.dialect:org.hibernate.dialect.PostgreSQLDialect}") String hibernateDialect,
+            @Value("${hibernate.dialect:org.hibernate.dialect.MySQLDialect}") String hibernateDialect,
             @Value("${hibernate.show_sql:true}") String hibernateShowSql,
             @Value("${hibernate.format_sql:true}") String hibernateFormatSql,
             @Qualifier("datasource") DataSource ds,

@@ -64,9 +64,3 @@ spring:
     active: dev
     restart:
       enabled: false
----
-jwt:
-  auth:
-    secret_key: lK1j9rfXrbMd1Fi0iu6bFUEzbMjBxEtGKBpAVrxc1sIAXwrJy40tfQ==
-    expires_in: 3600
-    app: Digital-RestApi-App
